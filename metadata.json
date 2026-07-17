@@ -1,0 +1,8 @@
+{
+  "name": "Local SPC Analyzer",
+  "description": "Professional statistical process control (SPC) analyzer for defense manufacturing engineers, featuring local Cpk calculation and interactive visualization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
