@@ -4,4 +4,19 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Binance Colors */
+  --color-binance-yellow: #FCD535;
+  --color-binance-yellow-active: #f0b90b;
+  --color-canvas-dark: #0b0e11;
+  --color-surface-card-dark: #1e2329;
+  --color-surface-elevated-dark: #2b3139;
+  --color-trading-up: #0ecb81;
+  --color-trading-down: #f6465d;
+  --color-ink-dark: #181a20;
+  --color-muted-gray: #707a8a;
+}
+
+body {
+  @apply bg-canvas-dark text-slate-200;
 }

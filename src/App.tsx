@@ -98,7 +98,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen bg-slate-50 font-sans text-slate-900 overflow-hidden text-sm">
+    <div className="flex h-screen bg-canvas-dark font-sans text-slate-200 overflow-hidden text-sm">
       <Sidebar
         usl={usl}
         lsl={lsl}
@@ -113,26 +113,26 @@ export default function App() {
 
       <main className="flex-1 flex flex-col min-w-0">
         {/* Header */}
-        <header className="h-14 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0 shadow-sm">
+        <header className="h-14 bg-canvas-dark border-b border-surface-elevated-dark flex items-center justify-between px-6 shrink-0 shadow-sm">
           <div className="flex items-center gap-3">
-            <h1 className="font-bold text-slate-800 text-sm">
+            <h1 className="font-bold text-white text-sm uppercase tracking-tight">
               한화에어로스페이스 공정품질기술팀 
-              <span className="font-normal text-slate-300 mx-3">|</span> 
-              <span className="text-blue-600">SPC 분석 리포트</span>
+              <span className="font-normal text-muted-gray mx-3">|</span> 
+              <span className="text-binance-yellow">SPC 분석 리포트</span>
             </h1>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             <button 
               onClick={handleDownloadReport}
               disabled={!stats}
-              className="px-3 py-1.5 border border-slate-200 rounded text-xs font-bold hover:bg-slate-50 transition-colors disabled:opacity-30 disabled:grayscale"
+              className="px-4 py-1.5 border border-surface-elevated-dark rounded-[4px] text-xs font-bold text-white hover:bg-surface-card-dark transition-colors disabled:opacity-30 disabled:grayscale"
             >
               Export Data
             </button>
             <button 
               onClick={handleDownloadReport}
               disabled={!stats}
-              className="px-3 py-1.5 bg-blue-600 text-white rounded text-xs font-bold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:grayscale shadow-sm"
+              className="px-4 py-1.5 bg-binance-yellow text-ink-dark rounded-[4px] text-xs font-bold hover:bg-binance-yellow-active transition-colors disabled:opacity-50 disabled:grayscale shadow-sm"
             >
               Download Report (CSV)
             </button>
@@ -147,13 +147,13 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="h-full flex flex-col items-center justify-center text-center space-y-3"
+                className="h-full flex flex-col items-center justify-center text-center space-y-4"
               >
-                <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-2 border border-slate-200">
-                  <LayoutDashboard className="w-8 h-8 text-slate-300" />
+                <div className="w-16 h-16 bg-surface-card-dark rounded-[12px] flex items-center justify-center mb-2 border border-surface-elevated-dark">
+                  <LayoutDashboard className="w-8 h-8 text-surface-elevated-dark" />
                 </div>
-                <h2 className="text-lg font-bold text-slate-700 tracking-tight">분석할 데이터를 로드하세요</h2>
-                <p className="text-slate-400 max-w-sm mx-auto text-xs font-medium">
+                <h2 className="text-xl font-bold text-white tracking-tight uppercase">데이터를 로드하세요</h2>
+                <p className="text-muted-gray max-w-sm mx-auto text-xs font-bold leading-relaxed uppercase tracking-wide">
                   사이드바의 "가상 데이터 생성" 또는 파일 업로드를 통해<br/>공정능력지수(Cpk) 분석을 시작할 수 있습니다.
                 </p>
               </motion.div>
@@ -161,46 +161,46 @@ export default function App() {
               <motion.div 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="space-y-6 max-w-7xl mx-auto"
+                className="space-y-8 max-w-7xl mx-auto pb-12"
               >
                 {/* KPI Cards */}
                 <StatsCards stats={stats} />
 
                 {/* Main Visuals Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Chart Area */}
                   <div className="lg:col-span-2">
                     <SPCChart data={histogramData} usl={usl} lsl={lsl} />
                   </div>
 
                   {/* Stats Table */}
-                  <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm overflow-hidden flex flex-col">
-                    <h3 className="text-xs font-bold text-slate-700 mb-5 uppercase tracking-wider">Descriptive Statistics</h3>
+                  <div className="bg-surface-card-dark rounded-[12px] border border-surface-elevated-dark p-6 shadow-sm overflow-hidden flex flex-col">
+                    <h3 className="text-[11px] font-bold text-muted-gray mb-6 uppercase tracking-widest">Descriptive Statistics</h3>
                     <div className="flex-1 space-y-1">
-                      <div className="flex justify-between py-2.5 border-b border-slate-50 text-[11px] font-medium">
-                        <span className="text-slate-400">Maximum</span>
-                        <span className="font-bold text-slate-700 font-mono">{stats.max.toFixed(4)}</span>
+                      <div className="flex justify-between py-3 border-b border-surface-elevated-dark/30 text-[11px] font-bold">
+                        <span className="text-muted-gray">Maximum</span>
+                        <span className="text-white font-mono">{stats.max.toFixed(4)}</span>
                       </div>
-                      <div className="flex justify-between py-2.5 border-b border-slate-50 text-[11px] font-medium">
-                        <span className="text-slate-400">Minimum</span>
-                        <span className="font-bold text-slate-700 font-mono">{stats.min.toFixed(4)}</span>
+                      <div className="flex justify-between py-3 border-b border-surface-elevated-dark/30 text-[11px] font-bold">
+                        <span className="text-muted-gray">Minimum</span>
+                        <span className="text-white font-mono">{stats.min.toFixed(4)}</span>
                       </div>
-                      <div className="flex justify-between py-2.5 border-b border-slate-50 text-[11px] font-medium">
-                        <span className="text-slate-400">Range (R)</span>
-                        <span className="font-bold text-slate-700 font-mono">{stats.range.toFixed(4)}</span>
+                      <div className="flex justify-between py-3 border-b border-surface-elevated-dark/30 text-[11px] font-bold">
+                        <span className="text-muted-gray">Range (R)</span>
+                        <span className="text-white font-mono">{stats.range.toFixed(4)}</span>
                       </div>
-                      <div className="flex justify-between py-2.5 border-b border-slate-50 text-[11px] font-medium">
-                        <span className="text-slate-400">Variance (σ²)</span>
-                        <span className="font-bold text-slate-700 font-mono">{(stats.stdDev ** 2).toFixed(6)}</span>
+                      <div className="flex justify-between py-3 border-b border-surface-elevated-dark/30 text-[11px] font-bold">
+                        <span className="text-muted-gray">Variance (σ²)</span>
+                        <span className="text-white font-mono">{(stats.stdDev ** 2).toFixed(6)}</span>
                       </div>
-                      <div className="flex justify-between py-2.5 border-b border-slate-50 text-[11px] font-medium">
-                        <span className="text-slate-400">Cp Index</span>
-                        <span className="font-bold text-blue-600 font-mono">{stats.cp.toFixed(3)}</span>
+                      <div className="flex justify-between py-3 border-b border-surface-elevated-dark/30 text-[11px] font-bold">
+                        <span className="text-muted-gray">Cp Index</span>
+                        <span className="text-binance-yellow font-mono">{stats.cp.toFixed(3)}</span>
                       </div>
                     </div>
-                    <div className="mt-6 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                       <div className="text-[9px] text-slate-400 uppercase font-bold mb-1.5 tracking-tighter">Capability Formula</div>
-                       <div className="text-[10px] font-serif italic text-slate-500 leading-relaxed">
+                    <div className="mt-8 p-4 bg-canvas-dark rounded-[8px] border border-surface-elevated-dark/50">
+                       <div className="text-[9px] text-muted-gray uppercase font-bold mb-2 tracking-widest">Capability Formula</div>
+                       <div className="text-[11px] font-serif italic text-muted-gray/80 leading-relaxed">
                          Cpk = min((USL-μ)/3σ, (μ-LSL)/3σ)
                        </div>
                     </div>
@@ -208,21 +208,21 @@ export default function App() {
                 </div>
 
                 {/* Run Log / Status Bar */}
-                <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex items-center justify-between">
+                <div className="bg-surface-card-dark rounded-[12px] border border-surface-elevated-dark p-4 shadow-sm flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <div className="px-2 py-0.5 bg-slate-100 rounded text-[9px] font-black text-slate-500 uppercase tracking-tighter">Run Log</div>
-                    <div className="text-[10px] text-slate-400 font-medium">
+                    <div className="px-2 py-0.5 bg-surface-elevated-dark rounded text-[9px] font-black text-muted-gray uppercase tracking-widest">Run Log</div>
+                    <div className="text-[10px] text-muted-gray font-bold uppercase tracking-tight">
                       Analysis Active: {selectedColumn} | Last Update {new Date().toLocaleTimeString()}
                     </div>
                   </div>
                   <div className="flex items-center gap-6">
                     <div className="flex items-center gap-2">
-                       <span className="text-[9px] text-slate-400 font-bold uppercase tracking-tighter">Compute Load</span>
-                       <div className="w-16 h-1 bg-slate-100 rounded-full overflow-hidden">
-                         <div className="w-[15%] h-full bg-blue-500"></div>
+                       <span className="text-[9px] text-muted-gray font-bold uppercase tracking-widest">Compute Load</span>
+                       <div className="w-16 h-1 bg-surface-elevated-dark rounded-full overflow-hidden">
+                         <div className="w-[15%] h-full bg-binance-yellow"></div>
                        </div>
                     </div>
-                    <div className="text-[9px] text-slate-400 font-bold tracking-tighter">VER 2.4.0 (LOCAL-ONLY)</div>
+                    <div className="text-[9px] text-muted-gray font-bold tracking-widest uppercase">VER 2.4.0 (LOCAL-ONLY)</div>
                   </div>
                 </div>
               </motion.div>
